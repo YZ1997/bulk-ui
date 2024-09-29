@@ -1,0 +1,28 @@
+{
+  "name": "bulk-ui",
+  "version": "0.0.3",
+  "private": false,
+  "type": "module",
+  "main": "dist/bulk-ui.umd.js",
+  "module": "dist/bulk-ui.es.js",
+  "files": [
+    "dist/*",
+    "index.js"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "bulk-ui": "^0.0.2",
+    "element-plus": "^2.8.3",
+    "pinia": "^2.1.7",
+    "vue": "^3.4.29"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.5",
+    "@vitejs/plugin-vue-jsx": "^4.0.0",
+    "vite": "^5.3.1"
+  }
+}

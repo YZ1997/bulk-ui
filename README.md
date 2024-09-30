@@ -13,12 +13,13 @@ npm install bulk-ui
 ### 引入样式
 ```javascript
 //main.js
+import bulkUI from 'bulk-ui'
 import 'bulk-ui/dist/style.css'
+app.use(bulkUI)
 ```
 
-### 引入组件并使用
+### Loading组件
 ```javascript
-//需要使用的页面
 import { bulkLoading } from 'bulk-ui'
 let loading = bulkLoading({msg: '拼命加载中'})
 setTimeout(() => {
@@ -26,4 +27,20 @@ setTimeout(() => {
     console.log('关闭')
   })
 }, 2000)
+```
+
+### picture-player组件
+```html
+<bulk-picture-player ref="imgPlayer" />
+```
+```javascript
+const imgs = ref([
+  'https://files.catbox.moe/9svvu5.jpg', 
+  'https://files.catbox.moe/9svvu5.jpg', 
+  'https://files.catbox.moe/9svvu5.jpg' 
+])
+const imgPlayer = ref(null)
+const openImgPlayer = () => {
+  imgPlayer.value.install({imgs:imgs.value,index:1})
+}
 ```

@@ -1,39 +1,30 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { ref } from 'vue'
 import { bulkLoading } from 'bulk-ui'
 // import { bulkLoading } from '../packages'
-import { ElLoading } from 'element-plus'
-const openFullScreen2 = () => {
-  const loading = ElLoading.service({
-    lock: true,
-    text: 'Loading',
-    background: 'rgba(0, 0, 0, 0.7)',
-  })
-  setTimeout(() => {
-    loading.close()
-  }, 2000)
+// let loading = bulkLoading({msg: '拼命加载中'})
+// setTimeout(() => {
+//     loading.close(() => {
+//       let loading2 = bulkLoading({msg: '客官稍等'})
+//     })
+//   }, 2000)
+
+const imgs = ref([
+  'https://files.catbox.moe/9svvu5.jpg', 
+  'https://gitee.com/wuyizhou/photo-bed/raw/master/172586024600920200811120122909.jpg', 
+  'https://gitee.com/wuyizhou/photo-bed/raw/master/1725849881998%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230110153902.jpg'
+])
+const imgPlayer = ref(null)
+const openImgPlayer = () => {
+  imgPlayer.value.install({imgs:imgs.value,index:1})
 }
-let loading = bulkLoading({msg: '拼命加载中'})
-setTimeout(() => {
-    loading.close(() => {
-      let loading2 = bulkLoading({msg: '客官稍等'})
-    })
-  }, 2000)
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" @click="openFullScreen2" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <div>
+    <input type="button" value="图片预览" @click="openImgPlayer">
+  </div>
+  <bulk-picture-player ref="imgPlayer" />
 </template>
 
 <style scoped>

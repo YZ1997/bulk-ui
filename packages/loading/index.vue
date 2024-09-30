@@ -1,22 +1,19 @@
 <template>
-  <transition  enter-active-class="animate__animated animate__fadeIn"
-  leave-active-class="animate__animated animate__fadeOut">
-    <div class="loading-container" v-if="show">
-      <div class="mask" :style="{ opacity: opacity }" @click="clickMask"></div>
-      <div class="loading">
-        <div v-if="type == 'custom'" slot></div>
-        <div v-else :class="type">
-          <div class="front"></div>
-          <div class="back"></div>
-          <div class="top"></div>
-          <div class="bottom"></div>
-          <div class="left"></div>
-          <div class="right"></div>
-        </div>
-        <div class="text">{{msg}}</div>
+  <div class="loading-container" v-if="show">
+    <div class="mask" :style="{ opacity: opacity }" @click="clickMask"></div>
+    <div class="loading">
+      <div v-if="type == 'custom'" slot></div>
+      <div v-else :class="type">
+        <div class="front"></div>
+        <div class="back"></div>
+        <div class="top"></div>
+        <div class="bottom"></div>
+        <div class="left"></div>
+        <div class="right"></div>
       </div>
+      <div class="text">{{msg}}</div>
     </div>
-  </transition>
+  </div>
 </template>
 
 <script setup>
@@ -77,12 +74,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.animate__animated animate__fadeIn {
-  animation-duration: 0.3s;
-}
-.animate__animated animate__fadeOut {
-  animation-duration: 0.3s;
-}
 .mask {
   position: fixed;
   top: 0;

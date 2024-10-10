@@ -1,9 +1,13 @@
 import bulkLoading from './loading'
 import bulkPicturePlayer from './picture-player'
+import bulkPictureClipping from './picture-clipping'
+import bulkClippingTool from './picture-clipping/clipping-tool'
 
 // 导出组件
 const components = [
-  bulkPicturePlayer
+  bulkPicturePlayer,
+  bulkPictureClipping,
+  bulkClippingTool
 ]
 
 // 定义 install 方法，接收 Vue 作为参数

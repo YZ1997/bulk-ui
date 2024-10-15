@@ -1,10 +1,17 @@
-import bulkLoading from './loading'
+import bulkButton from './button'
+import bulkSmsButton from './button/sms-button'
+import bulkDebouncButton from './button/debounc-button'
 import bulkPicturePlayer from './picture-player'
 import bulkPictureClipping from './picture-clipping'
 import bulkClippingTool from './picture-clipping/clipping-tool'
 
+import bulkLoading from './loading'
+
 // 导出组件
 const components = [
+  bulkButton,
+  bulkSmsButton,
+  bulkDebouncButton,
   bulkPicturePlayer,
   bulkPictureClipping,
   bulkClippingTool

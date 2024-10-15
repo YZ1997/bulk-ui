@@ -16,6 +16,7 @@
 
 <script setup>
 import { ref, onMounted, defineEmits } from 'vue'
+import '../../main.css'
 
 const props = defineProps({
   width: {// 裁剪框宽度
@@ -223,13 +224,13 @@ defineExpose({
 }
 .clipping-tool-button .confirm {
   border: none;
-  background-color: #409eff;
+  background-color: var(--primary-color);
   color: #ffffff;
 }
 .clipping-tool-button .cancel {
-  border: 1px solid #409eff;
+  border: 1px solid var(--primary-color);
   background-color: transparent;
-  color: #409eff;
+  color: var(--primary-color);
 }
 .clipping-tool {
   overflow: hidden;

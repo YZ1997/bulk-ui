@@ -9,8 +9,9 @@
 
 <script setup>
 import { ref } from 'vue'
-import clippingTool from './clipping-tool'
+import './clipping-tool'
 import { fileToBase64 } from '../utils'
+import '../main.css'
 
 const props = defineProps({
   value: {
@@ -54,7 +55,7 @@ const getImgUrl = (url) => {
 
 <style scoped>
 .clipping-choose {
-  background-color: #409eff;
+  background-color: var(--primary-color);
   color: #ffffff;
   border: none;
   padding: 6px 20px;

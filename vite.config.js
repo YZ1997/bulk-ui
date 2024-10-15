@@ -10,7 +10,7 @@ const resolve = (dir) => path.join(__dirname, dir);
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
-    host: '192.168.11.34',
+    host: '172.18.18.87',
     port: 3000
   },
   

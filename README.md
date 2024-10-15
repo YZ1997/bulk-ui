@@ -19,6 +19,92 @@ app.use(bulkUI)
 ```
 
 
+### button组件
+```html
+<!-- 普通调用 -->
+<bulk-button>按钮</bulk-button>
+<!-- 按钮的左侧部分无预设样式，自由度高，可随意填充内容，如icon，单选框，复选框 -->
+<!-- icon&文字 -->
+<bulk-button>
+  <template #left>
+    <div style="padding-left: 10px;">
+      <img style="display: block;width: 16px;height: 16px;margin-right: -8px;"  src="https://gitee.com/wuyizhou/photo-bed/raw/master/1728964708349success.png">
+    </div>
+  </template>
+  按钮
+</bulk-button>
+<!-- 纯icon -->
+<bulk-button iconButton>
+  <template #left>
+    <div style="padding: 5px 8px;">
+      <img style="display: block;width: 12px;height: 12px;" src="https://gitee.com/wuyizhou/photo-bed/raw/master/1728964708349success.png">
+    </div>
+  </template>
+</bulk-button>
+```
+#### button组件属性
+| 属性名 | 说明 | 类型 | 默认值 |
+| ---- | ---- | ---- | ---- |
+| type | 按钮类型 | String | primary |
+| size | 按钮大小 | String | normal |
+| loading | 是否加载中 | Boolean | false |
+| disabled | 是否禁用 | Boolean | false |
+| iconButton | 是否为纯图标按钮 | Boolean | false |
+| boderButton | 是否为边框按钮 | Boolean | false |
+| width | 按钮宽度 | String | 'auto' |
+| height | 按钮高度 | String | 'auto' |
+| border | 按钮边框 | String | '' |
+| background | 按钮背景 | String | '' |
+| color | 按钮文字颜色 | String | '' |
+
+
+### sms-button组件(基于button组件，获取短信验证码)
+```html
+<!-- 普通调用 -->
+<bulk-sms-button :request="getCode" :cd="120" />
+```
+```javascript
+const getCode = () => {
+  return new Promise((resolve, reject) => {
+    fetch('url')
+    .then(response => response.json())
+    .then(data => {
+      resolve(true)
+      // --处理返回数据--
+    })
+    .catch(error => {
+      reject(error)
+    })
+  })
+}
+```
+#### sms-button组件属性
+| 属性名 | 说明 | 类型 | 默认值 |
+| ---- | ---- | ---- | ---- |
+| request | 获取验证码请求函数,需返回Promise | Function | - |
+| cd | 倒计时时间，单位：s | Number | 60 |
+
+
+
+### debounc-button组件(基于button组件，节流按钮，防止重复点击)
+```html
+<!-- 普通调用 -->
+<bulk-debounc-button :request="submit">提交</bulk-debounc-button>
+```
+```javascript
+const submit = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(true)
+    },3000)
+  })
+}
+```
+#### sms-button组件属性
+| 属性名 | 说明 | 类型 | 默认值 |
+| ---- | ---- | ---- | ---- |
+| request | 操作请求函数,需返回Promise | Function | - |
+
 
 
 ### Loading组件（加载组件）
@@ -50,7 +136,6 @@ const openImgPlayer = () => {
   imgPlayer.value.install({imgs:imgs.value,index:1})
 }
 ```
-
 
 
 
